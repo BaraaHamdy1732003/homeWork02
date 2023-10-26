@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>User Display</title>
+    <title>models.User Display</title>
 </head>
 <body>
 <table>

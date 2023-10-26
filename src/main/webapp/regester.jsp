@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>User Registration</title>
+    <title>models.User Registration</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -63,11 +63,11 @@
 </head>
 <body>
 <div class="container">
-    <h2>User Registration</h2>
+    <h2>models.User Registration</h2>
     <form action="Register" method="post">
         <table>
             <tr>
-                <td>User Name</td>
+                <td>models.User Name</td>
                 <td><input type="text" name="uname"></td>
             </tr>
             <tr>
