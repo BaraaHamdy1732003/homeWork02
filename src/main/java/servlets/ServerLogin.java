@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Login")
-public class ServerLogin implements Login extends HttpServlet {
+public class ServerLogin  extends HttpServlet implements UserDAO{
     private static final long serialVersionUID = 1L;
     private static final String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
     private static final String DB_USERNAME = "postgres";
@@ -60,7 +60,7 @@ public class ServerLogin implements Login extends HttpServlet {
     }
 
 
-public Boolean checkLogin(String uname, String password){
+public boolean checkLogin(String uname, String password) throws ServletException {
     init("org.postgresql.Driver");
     Connection con = getConnection();
     String sql = "SELECT * FROM \"user_accounts\" WHERE uname=? AND password=?";
@@ -79,6 +79,16 @@ public Boolean checkLogin(String uname, String password){
     }
     return false;
 }
+
+    @Override
+    public String insert(User user) {
+        return null;
+    }
+
+    @Override
+    public List<User> ViewAllUsers() {
+        return null;
+    }
 
 }
 

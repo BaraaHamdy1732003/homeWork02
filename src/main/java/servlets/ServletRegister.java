@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Register")
-public class ServletRegister implements Register extends HttpServlet {
+public class ServletRegister extends HttpServlet  implements UserDAO{
     private static final String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
     private static final String DB_USERNAME = "postgres";
     private static final String DB_PASSWORD = "171070";
@@ -53,18 +53,32 @@ public class ServletRegister implements Register extends HttpServlet {
         String password=request.getParameter("password");
         String email=request.getParameter("email");
         String phone=request.getParameter("phone");
-        User user = new User (uname, password, email, phone);
+      /*  User user = new User (uname, password, email, phone);
         Register registerAuth=new Register();
-        String result=registerAuth.insert(user);
+        String result=registerAuth.insert(user);*/
 
         System.out.println("Username: " + uname);
         System.out.println("Password: " + password);
         System.out.println("Email: " + email);
         System.out.println("Phone: " + phone);
-        response.getWriter().println(result);
+       // response.getWriter().println(result);
 
         request.setAttribute("users", users);
         request.getRequestDispatcher("src/main/webapp/regester.jsp").forward(request, response);
     }
 
+    @Override
+    public boolean checkLogin(String uname, String password) {
+        return false;
+    }
+
+    @Override
+    public String insert(User user) {
+        return null;
+    }
+
+    @Override
+    public List<User> ViewAllUsers() {
+        return null;
+    }
 }

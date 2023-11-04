@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 // TODO: 09.10.2023 method INIT;in every servlet
 
 @WebServlet("/getUsers")
-public class ServletViewAllUser implements ViewAllUser extends HttpServlet {
+public class ServletViewAllUser extends HttpServlet implements UserDAO {
     private static final String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
     private static final String DB_USERNAME = "postgres";
     private static final String DB_PASSWORD = "171070";
@@ -66,5 +66,20 @@ public class ServletViewAllUser implements ViewAllUser extends HttpServlet {
 
         request.setAttribute("users", users);
         request.getRequestDispatcher("ViewAll.jsp").forward(request, response);
+    }
+
+    @Override
+    public boolean checkLogin(String uname, String password) {
+        return false;
+    }
+
+    @Override
+    public String insert(User user) {
+        return null;
+    }
+
+    @Override
+    public List<User> ViewAllUsers() {
+        return null;
     }
 }
